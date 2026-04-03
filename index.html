@@ -1,382 +1,325 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="tr">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AydinAbdullah.com</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Abdullah Aydın — Frontend & Mobile Developer</title>
+	<meta name="description" content="Abdullah Aydın — 5+ yıl deneyimli Frontend & Mobile Developer. İstanbul.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+		rel="stylesheet">
+	<style>
+		*,
+		*::before,
+		*::after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+		body {
+			font-family: 'Inter', -apple-system, system-ui, sans-serif;
+			background: #fafaf9;
+			color: #1c1917;
+			height: 100vh;
+			height: 100dvh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			-webkit-font-smoothing: antialiased;
+			overflow: hidden;
+			position: relative;
+		}
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+		/* ── Subtle mesh background ── */
+		body::before {
+			content: '';
+			position: fixed;
+			inset: 0;
+			background:
+				radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 91, 255, 0.06), transparent),
+				radial-gradient(ellipse 60% 60% at 80% 60%, rgba(244, 114, 76, 0.05), transparent),
+				radial-gradient(ellipse 50% 40% at 50% 0%, rgba(59, 130, 246, 0.04), transparent);
+			pointer-events: none;
+		}
 
-	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
+		/* ── Dot grid pattern ── */
+		body::after {
+			content: '';
+			position: fixed;
+			inset: 0;
+			background-image: radial-gradient(circle, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+			background-size: 24px 24px;
+			pointer-events: none;
+		}
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+		/* ── Card ── */
+		.card {
+			position: relative;
+			z-index: 1;
+			background: rgba(255, 255, 255, 0.85);
+			backdrop-filter: blur(40px);
+			-webkit-backdrop-filter: blur(40px);
+			border: 1px solid rgba(0, 0, 0, 0.06);
+			border-radius: 28px;
+			padding: 52px 48px 44px;
+			max-width: 480px;
+			width: 92%;
+			box-shadow:
+				0 0 0 1px rgba(255, 255, 255, 0.8) inset,
+				0 1px 2px rgba(0, 0, 0, 0.03),
+				0 8px 40px rgba(0, 0, 0, 0.06);
+		}
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+		/* ── Top section: avatar + info ── */
+		.profile {
+			display: flex;
+			align-items: center;
+			gap: 22px;
+			margin-bottom: 28px;
+		}
 
+		.avatar {
+			width: 80px;
+			height: 80px;
+			border-radius: 20px;
+			object-fit: cover;
+			object-position: center top;
+			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+			flex-shrink: 0;
+			transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		}
+
+		.avatar:hover {
+			transform: scale(1.05) rotate(-1deg);
+		}
+
+		.info h1 {
+			font-size: 1.3rem;
+			font-weight: 700;
+			letter-spacing: -0.02em;
+			line-height: 1.3;
+		}
+
+		.info .role {
+			font-size: 0.82rem;
+			color: #57534e;
+			font-weight: 500;
+			margin-top: 2px;
+		}
+
+		.info .location {
+			font-size: 0.72rem;
+			color: #a8a29e;
+			margin-top: 4px;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+
+		.location-dot {
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			background: #10b981;
+			box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+		}
+
+		/* ── Divider ── */
+		.divider {
+			height: 1px;
+			background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.06) 20%, rgba(0, 0, 0, 0.06) 80%, transparent);
+			margin-bottom: 24px;
+		}
+
+		/* ── Summary ── */
+		.summary {
+			font-size: 0.88rem;
+			line-height: 1.7;
+			color: #44403c;
+			margin-bottom: 28px;
+		}
+
+		.summary strong {
+			color: #1c1917;
+			font-weight: 600;
+		}
+
+		/* ── Tech tags ── */
+		.tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 6px;
+			margin-bottom: 32px;
+		}
+
+		.tag {
+			padding: 5px 13px;
+			border-radius: 8px;
+			font-size: 0.72rem;
+			font-weight: 500;
+			font-family: 'JetBrains Mono', monospace;
+			letter-spacing: -0.01em;
+			background: rgba(0, 0, 0, 0.03);
+			color: #57534e;
+			border: 1px solid rgba(0, 0, 0, 0.04);
+			transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+			cursor: default;
+		}
+
+		.tag:hover {
+			background: #1c1917;
+			color: #fafaf9;
+			border-color: #1c1917;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+		}
+
+		/* ── Action row ── */
+		.actions {
+			display: flex;
+			gap: 10px;
+		}
+
+		.action-btn {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			padding: 13px 20px;
+			border-radius: 14px;
+			font-size: 0.82rem;
+			font-weight: 600;
+			font-family: 'Inter', sans-serif;
+			text-decoration: none;
+			transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+			cursor: pointer;
+			border: none;
+		}
+
+		.action-btn svg {
+			width: 15px;
+			height: 15px;
+			flex-shrink: 0;
+		}
+
+		.action-primary {
+			background: #1c1917;
+			color: #fff;
+		}
+
+		.action-primary:hover {
+			background: #292524;
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+		}
+
+		.action-secondary {
+			background: transparent;
+			color: #57534e;
+			border: 1px solid rgba(0, 0, 0, 0.08);
+		}
+
+		.action-secondary:hover {
+			background: rgba(0, 0, 0, 0.03);
+			color: #1c1917;
+			border-color: rgba(0, 0, 0, 0.15);
+			transform: translateY(-2px);
+		}
+
+		/* ── Bottom text ── */
+		.bottom {
+			text-align: center;
+			margin-top: 20px;
+			font-size: 0.68rem;
+			color: #d6d3d1;
+			letter-spacing: 0.02em;
+		}
+
+		/* ── Responsive ── */
+		@media (max-width: 480px) {
+			.card {
+				padding: 36px 28px 32px;
+				border-radius: 22px;
+			}
+
+			.profile {
+				gap: 16px;
+			}
+
+			.avatar {
+				width: 64px;
+				height: 64px;
+				border-radius: 16px;
+			}
+
+			.info h1 {
+				font-size: 1.15rem;
+			}
+
+			.actions {
+				flex-direction: column;
+			}
+		}
+	</style>
 </head>
 
 <body>
-	<div id="colorlib-page">
-		<div class="container-wrap">
-			<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
-				aria-expanded="false" aria-controls="navbar"><i></i></a>
 
-			<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-				<div class="text-center">
-					<div class="author-img" style="background-image: url(images/about.jpg);"></div>
-					<h1 id="colorlib-logo"><a href="index.html">ABDULLAH AYDIN</a></h1>
-					<span class="position">YAZILIM GELİŞTİRİCİ && MAKİNE MÜHENDİSİ</span>
-				</div>
-				<nav id="colorlib-main-menu" role="navigation" class="navbar">
-					<div id="navbar" class="collapse">
-						<ul>
-							<li class="active"><a href="#" data-nav-section="home">Anasayfa</a></li>
-							<li><a href="#" data-nav-section="about">Hakkımda</a></li>
-							<li><a href="#" data-nav-section="skills">YETENEKLERİM</a></li>
-							<li><a href="#" data-nav-section="contact">İLETİŞİM</a></li>
-						</ul>
-					</div>
-				</nav>
-				<div class="colorlib-footer">
-					<p><small>&copy;
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved | This
-							template is made with <i class="icon-heart" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				</div>
-			</aside>
+	<div class="card">
+		<!-- Profile -->
+		<div class="profile">
+			<img class="avatar" src="images/about.jpg" alt="Abdullah Aydın" width="80" height="80" loading="eager">
+			<div class="info">
+				<h1>Abdullah Aydın</h1>
+				<p class="role">Frontend & Mobile Developer</p>
+				<p class="location"><span class="location-dot"></span> İstanbul, Türkiye</p>
+			</div>
+		</div>
 
-			<div id="colorlib-main">
-				<section id="colorlib-hero" class="js-fullheight" data-section="home">
-					<div class="flexslider js-fullheight">
-						<ul class="slides">
-							<li style="">
-								<div class="overlay">
-									<div class="container-fluid">
-										<div class="row">
-											<div
-												class="col-md-12 col-md-offset-6 col-md-pull-6 col-sm-12 col-xs-12 js-fullheight slider-text">
-												<div class="slider-text-inner js-fullheight">
-													<div class="desc">
-														<h1>Merhaba</h1>
-														<h2>Ben Abdullah Aydın. Aşağıdaki bölümden, Özgeçmişimi
-															indirebilir, hakkımda bilgi edinebilir veya benimle
-															iletişime geçebilirsiniz. <br> Teşekkürler.</h2>
-														<p><a download href="CV.pdf"
-																class="btn btn-primary btn-learn">ÖZGEÇMİŞİ İNDİR<i
-																	class="icon-download4"></i></a></p>
-													</div>
-													<div class="social">
-														<ul>
-															<li><a href="https://github.com/abdullah-aydin"><i
-																		class="icon-github"></i></a></li>
-															<li><a
-																	href="https://www.linkedin.com/in/abdullah-aydin"><i
-																		class="icon-linkedin2"></i></a></li>
-															<li><a href="https://twitter.com/_AAydin_"><i
-																		class="icon-twitter2"></i></a></li>
-															<li><a href="https://www.instagram.com/aaydin.29"><i
-																		class="icon-instagram"></i></a></li>
-															<li><a href="https://www.facebook.com/uAbdullah29"><i
-																		class="icon-facebook2"></i></a></li>
+		<div class="divider"></div>
 
+		<!-- Summary -->
+		<p class="summary">
+			<strong>5+ yıl</strong> deneyimli geliştirici. Web ve mobil tarafta ölçeklenebilir,
+			performanslı uygulamalar geliştiriyorum.
+		</p>
 
+		<!-- Tech stack -->
+		<div class="tags">
+			<span class="tag">React</span>
+			<span class="tag">Next.js</span>
+			<span class="tag">Angular</span>
+			<span class="tag">TypeScript</span>
+			<span class="tag">React Native</span>
+			<span class="tag">Flutter</span>
+		</div>
 
+		<!-- Actions -->
+		<div class="actions">
+			<a href="https://linkedin.com/in/abdullah-aydin" target="_blank" rel="noopener"
+				class="action-btn action-secondary" id="linkedin-btn">
+				<svg viewBox="0 0 24 24" fill="currentColor">
+					<path
+						d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+				</svg>
+				LinkedIn
+			</a>
+			<a href="https://github.com/abdullah-aydin" target="_blank" rel="noopener" class="action-btn action-secondary"
+				id="github-btn">
+				<svg viewBox="0 0 24 24" fill="currentColor">
+					<path
+						d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.21.66-.47 0-.23-.01-.85-.01-1.67-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.16.57.67.47A10.003 10.003 0 0 0 22 12c0-5.52-4.48-10-10-10z" />
+				</svg>
+				GitHub
+			</a>
+		</div>
 
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-							</li>
-						</ul>
-					</div>
-				</section>
-
-				<section class="colorlib-about" data-section="about">
-					<div class="colorlib-narrow-content">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
-									<div class="col-md-12">
-										<div class="about-desc">
-											<h2 class="colorlib-heading">Hakkımda</h2>
-											<p><strong>Merhaba! Ben Abdullah Aydın.</strong> 24 yaşındayım ve Bozok
-												Üniversitesi Makine Mühendisliği bölümü mezunuyum ayrıca yazılım ile
-												ilgilenmekte ve bu alanda kendimi geliştirmekteyim.</p>
-
-											<p>Üniversitede makine mühendisliği okumama rağmen yazılıma karşı ilgim hep
-												vardı ve okula devam ettiğim zaman zarfında
-												kendimi geliştirmeye çalıştım. Freelancer olarak çalışarak çeşitli web
-												siteleri hazırladım.</p>
-											<p>Okulum bittikten sonra meslekçi asteğmen olarak askerlik görevimi
-												yaparken kendimi birden ihalelerin, projelerin
-												ortasında buldum. Bu süreçte, kısa zaman içerisinde ortama ayak uydurup,
-												kendimi geliştirmenin yollarını aradım ve baskı
-												altında nasıl çalışılması gerektiğini öğrendim. Kısa bir sürede
-												vekaleten şube müdürlüğü görevini yürüttüm.</p>
-											<p>Askerlikten arta kalan zamanlarımda ve sonrasında yeni teknolojiler
-												üstüne kendimi geliştirme çabasına girdim. ReactJS
-												öğrenmeye başladım. Kendimce çeşitli projeler hazırladım.</p>
-											<p>Askerlikten hemen sonra Ankara Anlaşmasına başvurarak vize aldım. Hem
-												çalışmak için hem de dilimi geliştirmek amacıyla
-												İngiltere'ye gittim fakat koronavirüs nedeni ile belirli bir süre sonra
-												geri dönmek zorunda kaldım.</p>
-											<p>Son olarak, bundan sonraki çalışma hayatımda, bilgi ve becerilerimi daha
-												fazla geliştirerek, çalıştığım kurumun
-												hedeflerine ulaşabilmesi için görev alabileceğim ve problem çözme
-												yeteneğimi kullanabileceğim bir pozisyonda başarılı
-												işler yapmak istiyorum.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-
-				<section class="colorlib-skills" data-section="skills">
-					<div class="colorlib-narrow-content">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-								data-animate-effect="fadeInLeft">
-								<h2 class="colorlib-heading animate-box">Yeneteklerim</h2>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="progress-wrap">
-									<h3>React JS</h3>
-									<div class="progress">
-										<div class="progress-bar color-1" role="progressbar" aria-valuenow="70"
-											aria-valuemin="0" aria-valuemax="100" style="width:70%">
-											<span>70%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="progress-wrap">
-									<h3>Next JS</h3>
-									<div class="progress">
-										<div class="progress-bar color-2" role="progressbar" aria-valuenow="70"
-											aria-valuemin="0" aria-valuemax="100" style="width:70%">
-											<span>70%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="progress-wrap">
-									<h3>Redux/Hooks</h3>
-									<div class="progress">
-										<div class="progress-bar color-3" role="progressbar" aria-valuenow="70"
-											aria-valuemin="0" aria-valuemax="100" style="width:70%">
-											<span>70%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="progress-wrap">
-									<h3>HTML5</h3>
-									<div class="progress">
-										<div class="progress-bar color-4" role="progressbar" aria-valuenow="99"
-											aria-valuemin="0" aria-valuemax="100" style="width:99%">
-											<span>99%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="progress-wrap">
-									<h3>CSS3</h3>
-									<div class="progress">
-										<div class="progress-bar color-5" role="progressbar" aria-valuenow="90"
-											aria-valuemin="0" aria-valuemax="100" style="width:90%">
-											<span>90%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="progress-wrap">
-									<h3>JavaScript</h3>
-									<div class="progress">
-										<div class="progress-bar color-6" role="progressbar" aria-valuenow="85"
-											aria-valuemin="0" aria-valuemax="100" style="width:85%">
-											<span>85%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="progress-wrap">
-									<h3>PHP</h3>
-									<div class="progress">
-										<div class="progress-bar color-7" role="progressbar" aria-valuenow="70"
-											aria-valuemin="0" aria-valuemax="100" style="width:70%">
-											<span>70%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="progress-wrap">
-									<h3>jQuery</h3>
-									<div class="progress">
-										<div class="progress-bar color-8" role="progressbar" aria-valuenow="90"
-											aria-valuemin="0" aria-valuemax="100" style="width:90%">
-											<span>90%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-								<div class="progress-wrap">
-									<h3>MySQL</h3>
-									<div class="progress">
-										<div class="progress-bar color-9" role="progressbar" aria-valuenow="85"
-											aria-valuemin="0" aria-valuemax="100" style="width:85%">
-											<span>85%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-								<div class="progress-wrap">
-									<h3>Adobe Photoshop</h3>
-									<div class="progress">
-										<div class="progress-bar color-10" role="progressbar" aria-valuenow="90"
-											aria-valuemin="0" aria-valuemax="100" style="width:90%">
-											<span>90%</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-
-
-				<section class="colorlib-contact" data-section="contact">
-					<div class="colorlib-narrow-content">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-								data-animate-effect="fadeInLeft">
-								<h2 class="colorlib-heading">İLETİŞİM</h2>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-5">
-								<div class="colorlib-feature colorlib-feature-sm animate-box"
-									data-animate-effect="fadeInLeft">
-									<div class="colorlib-icon">
-										<i class="icon-mail"></i>
-									</div>
-									<div class="colorlib-text">
-										<p><a href="mailto:uAbdullah29@gmail.com">uAbdullah29@gmail.com</a></p>
-									</div>
-								</div>
-
-								<div class="colorlib-feature colorlib-feature-sm animate-box"
-									data-animate-effect="fadeInLeft">
-									<div class="colorlib-icon">
-										<i class="icon-location"></i>
-									</div>
-									<div class="colorlib-text">
-										<p>Ümraniye, İstanbul</p>
-									</div>
-								</div>
-
-								
-								<div class="colorlib-feature colorlib-feature-sm animate-box"
-									data-animate-effect="fadeInLeft">
-									<div class="colorlib-icon" style="background-color: #fff;">
-										
-									</div>
-									<div class="colorlib-text">
-										
-									</div>
-								</div>
-								<div class="colorlib-feature colorlib-feature-sm animate-box"
-									data-animate-effect="fadeInLeft">
-									<div class="colorlib-icon" style="background-color: #fff;">
-										
-									</div>
-									<div class="colorlib-text">
-										
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</section>
-
-			</div><!-- end:colorlib-main -->
-		</div><!-- end:container-wrap -->
-	</div><!-- end:colorlib-page -->
-
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Owl carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-
-
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+	</div>
 
 </body>
 
